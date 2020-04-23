@@ -9,29 +9,30 @@ router.get('/signup', (req, res) => {
 });
 
 router.post('/signup', (req, res) => {
-  const { email, password } = req.body;
+  // console.log(req.body);
+  const { email, password, name, lastname } = req.body;
   if (email === '' || password === '') {
     res.render('signup.hbs', {
-      msg: 'Indicate a username and a password to sign up',
+      msg: 'Indicate a email and a password to sign up',
     });
   }
   User.findOne({ email: email })
     .then((user) => {
       if (user !== null) {
         res.render('signup.hbs', {
-          msg: 'The username already exists!',
+          msg: 'The email already exists!',
         });
       } else {
         const bcryptSalt = 10;
         const salt = bcrypt.genSaltSync(bcryptSalt);
         const hashPass = bcrypt.hashSync(password, salt);
-        const newUser = { email, password: hashPass };
+        const newUser = { email, password: hashPass, name, lastname };
         User.create(newUser)
           .then(() => res.redirect('/'))
           .catch((err) => console.log(err));
       }
     })
-    .catch((err) => next(err));
+    .catch((err) => console.log(err));
 });
 
 // SIGN IN
@@ -43,7 +44,7 @@ router.post('signin', (req, res) => {
   const { email, password } = req.body;
   if (email === '' || password === '') {
     res.render('login.hbs', {
-      msg: 'Please enter both, username and password to sign up.',
+      msg: 'Please enter both, email and password to sign up.',
     });
   }
 
@@ -63,8 +64,8 @@ router.post('signin', (req, res) => {
         });
       }
     })
-    .catch((error) => {
-      next(error);
+    .catch((err) => {
+      console.log(err);
     });
 });
 
