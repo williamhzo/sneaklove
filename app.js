@@ -75,7 +75,6 @@ app.use(eraseSessionMessage());
 app.use('/', require('./routes/index'));
 app.use('/', require('./routes/auth'));
 app.use('/sneakers', require('./routes/sneaker'));
-app.use('/admin', require('./routes/admin'));
 
 const listener = app.listen(process.env.PORT, () => {
   console.log(`app started at ${process.env.SITE_URL}:${process.env.PORT}`);
