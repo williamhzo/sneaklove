@@ -12,12 +12,12 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 const cookieParser = require('cookie-parser');
+const path = require('path');
 
 // initial config
 app.set('view engine', 'hbs');
-app.set('views', __dirname + '/view');
 app.use(express.static('public'));
-hbs.registerPartials(__dirname + '/views/partials');
+hbs.registerPartials(path.join(__dirname, 'views', 'partials'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
@@ -74,7 +74,7 @@ app.use(eraseSessionMessage());
 // Getting/Using router(s)
 app.use('/', require('./routes/index'));
 app.use('/auth', require('./routes/auth'));
-app.use('/dashboard_sneakers', require('./routes/dashboard_sneakers'));
+app.use('/dashboard_sneaker', require('./routes/dashboard_sneaker'));
 
 const listener = app.listen(process.env.PORT, () => {
   console.log(`app started at ${process.env.SITE_URL}:${process.env.PORT}`);
