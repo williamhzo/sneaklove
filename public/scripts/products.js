@@ -16,7 +16,6 @@ window.onload = () => {
 						sneakersAPI
 							.addTag(label)
 							.then((APIResult) => {
-								console.log(APIResult);
 								document.getElementById('new_tag_name').value = '';
 								document.getElementById(
 									'tags'

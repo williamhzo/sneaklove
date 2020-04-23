@@ -13,6 +13,7 @@ const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 const cookieParser = require('cookie-parser');
 const path = require('path');
+const flash = require('connect-flash');
 
 // initial config
 app.set('view engine', 'hbs');
@@ -20,13 +21,14 @@ app.use(express.static('public'));
 hbs.registerPartials(path.join(__dirname, 'views', 'partials'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(flash());
 app.use(cookieParser());
 
 // SESSION SETUP
 app.use(
 	session({
 		secret: process.env.SESSION_SECRET,
-		cookie: { maxAge: 60000 }, // in millisec
+		cookie: { maxAge: 60000 * 60 * 24 }, // in millisec
 		store: new MongoStore({
 			mongooseConnection: mongoose.connection,
 			ttl: 24 * 60 * 60, // 1 day
