@@ -15,8 +15,12 @@ window.onload = () => {
 					if (APIresult.data === null) {
 						sneakersAPI
 							.addTag(label)
-							.then(() => {
+							.then((APIResult) => {
+								console.log(APIResult);
 								document.getElementById('new_tag_name').value = '';
+								document.getElementById(
+									'tags'
+								).innerHTML += `<option value="${APIResult.data._id}">${APIResult.data.label}</option>`;
 							})
 							.catch((APIError) => console.log(APIError));
 					} else {

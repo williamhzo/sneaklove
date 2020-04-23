@@ -3,7 +3,6 @@ const router = express.Router();
 const Tag = require('../models/Tag');
 
 router.get('/', (req, res, next) => {
-	const query = req.query;
 	Tag.find()
 		.then((dbResult) => {
 			res.status(200).json(dbResult);
@@ -20,7 +19,6 @@ router.get('/:label', (req, res, next) => {
 });
 
 router.post('/:label', (req, res, next) => {
-	// Tag.create(req.params.label)
 	Tag.create({ label: req.params.label })
 		.then((dbResult) => {
 			res.status(201).json(dbResult);
