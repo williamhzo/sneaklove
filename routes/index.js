@@ -52,4 +52,20 @@ router.get('/prod-manage', authentificated, (req, res, next) => {
 		.catch((dbError) => console.log(dbError));
 });
 
+router.get('/prod-edit/:id', authentificated, (req, res, next) => {
+	Sneaker.findById(req.params.id)
+		.then((dbResult) => {
+			res.render('product_edit', {
+				sneaker: dbResult,
+			});
+		})
+		.catch((dbError) => console.log(dbError));
+});
+
+router.post('/prod-edit/:id', authentificated, uploadCloud.single('image'), (req, res, next) => {});
+
+router.get('/cart', (req, res, next) => {
+	res.render('cart');
+});
+
 module.exports = router;
