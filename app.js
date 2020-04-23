@@ -74,7 +74,7 @@ app.use(eraseSessionMessage());
 // Getting/Using router(s)
 app.use('/', require('./routes/index'));
 app.use('/', require('./routes/auth'));
-app.use('/', require('./routes/sneaker'));
+app.use('/sneaker', require('./routes/sneaker'));
 
 const listener = app.listen(process.env.PORT, () => {
   console.log(`app started at ${process.env.SITE_URL}:${process.env.PORT}`);
