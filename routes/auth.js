@@ -23,6 +23,7 @@ router.post('/signup', (req, res) => {
         res.render('signup.hbs', {
           msg: 'The email already exists!',
         });
+        return;
       } else {
         const bcryptSalt = 10;
         const salt = bcrypt.genSaltSync(bcryptSalt);
@@ -41,18 +42,19 @@ router.get('/signin', (req, res) => {
   res.render('signin.hbs');
 });
 
-router.post('signin', (req, res) => {
+router.post('/signin', (req, res) => {
   const { email, password } = req.body;
   if (email === '' || password === '') {
-    res.render('login.hbs', {
+    res.render('signin.hbs', {
       msg: 'Please enter both, email and password to sign up.',
     });
+    return;
   }
 
   User.findOne({ email: email })
     .then((user) => {
       if (!user) {
-        res.render('login.hbs', {
+        res.render('signin.hbs', {
           msg: 'Invalid credentials',
         });
         return;
@@ -61,7 +63,7 @@ router.post('signin', (req, res) => {
         req.session.currentUser = user;
         res.redirect('/');
       } else {
-        res.render('login.hbs', {
+        res.render('signin.hbs', {
           msg: 'Invalid credentials',
         });
       }
