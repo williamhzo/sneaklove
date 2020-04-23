@@ -15,6 +15,7 @@ router.post('/signup', (req, res) => {
     res.render('signup.hbs', {
       msg: 'Indicate a email and a password to sign up',
     });
+    return;
   }
   User.findOne({ email: email })
     .then((user) => {
@@ -54,6 +55,7 @@ router.post('signin', (req, res) => {
         res.render('login.hbs', {
           msg: 'Invalid credentials',
         });
+        return;
       }
       if (bcrypt.compareSync(password, user.password)) {
         req.session.currentUser = user;
