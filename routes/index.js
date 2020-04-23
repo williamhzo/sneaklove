@@ -7,10 +7,12 @@ router.get('/', (req, res) => {
 });
 
 router.get('/prod-add', authentificated, (req, res, next) => {
-	res.render('products_add');
+	res.render('products_add', {
+		scripts: ['products.js'],
+	});
 });
 
-router.post('./prod-add', authentificated, (req, res, next) => {
+router.post('/prod-add', authentificated, (req, res, next) => {
 	const newSneaker = {
 		name: req.body.name,
 		ref: req.body.ref,
@@ -25,7 +27,9 @@ router.post('./prod-add', authentificated, (req, res, next) => {
 });
 
 router.get('/prod-manage', authentificated, (req, res, next) => {
-	res.render('products_manage');
+	res.render('products_manage', {
+		scripts: ['products.js'],
+	});
 });
 
 module.exports = router;

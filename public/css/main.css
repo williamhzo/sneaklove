@@ -10,39 +10,39 @@
 @import './one-product.css';
 @import './home.css';
 
-
 @import url('https://fonts.googleapis.com/css?family=Faster+One|Oswald:300,400,500,700|Source+Sans+Pro:300,400,600,700&display=swap');
 
 * {
-  font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 }
 
 body {
-  font-family: 'Source Sans Pro', sans-serif;
-  display: flex;
-  flex-direction: column;
+	font-family: 'Source Sans Pro', sans-serif;
+	display: flex;
+	flex-direction: column;
+	font-size: 16px;
 }
 
-h1{
-  font-family: 'Source Sans Pro', sans-serif;
+h1 {
+	font-family: 'Source Sans Pro', sans-serif;
 }
 
 h2,
 h3,
 h4 {
-  font-family: 'Oswald', sans-serif;
-  text-transform: uppercase;
+	font-family: 'Oswald', sans-serif;
+	text-transform: uppercase;
 }
 
 .big-container {
-  display: flex;
-  width: 100%;
+	display: flex;
+	width: 100%;
 }
 
 .container {
-  width: 90%;
+	width: 90%;
 }
 
 .flexed-item {
-  display: flex;
+	display: flex;
 }

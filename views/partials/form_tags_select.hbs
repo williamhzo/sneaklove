@@ -1,5 +1,5 @@
-<select name="id_tags" id="tags" class="select">
-    <option value="-1" disabled selected>Choose a category</option>
+<select name="id_tags" id="tags" class="select" multiple>
+    <option value="-1" disabled selected>Choose categories</option>
     {{#each tags}}
     <option value="{{this._id}}">{{this.name}}</option>
     {{/each}}
