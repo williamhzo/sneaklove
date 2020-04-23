@@ -1,25 +1,24 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.send("foo");
+router.get('/', (req, res) => {
+  res.render('index.hbs');
 });
 
-router.get("/sneakers/:cat", (req, res) => {
-  res.send("bar");
+router.get('/sneakers/:cat', (req, res) => {
+
 });
 
-router.get("/one-product/:id", (req, res) => {
-  res.send("baz");
+router.get('/one-product/:id', (req, res) => {
+
 });
 
-router.get("/signup", (req, res) => {
-  res.send("sneak");
+router.get('/signup', (req, res) => {
+
 });
 
-router.get("/signin", (req, res) => {
-  res.send("love");
-});
+router.get('/signin', (req, res) => {
 
+});
 
 module.exports = router;
