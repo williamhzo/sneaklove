@@ -43,6 +43,7 @@ router.get('/:cat', (req, res) => {
 			const tags = await Tag.find()
 				.then((dbResult) => dbResult)
 				.catch((dbError) => next(dbError));
+
 			// Store all sneakers from the category in : sneakers
 			const sneakers = await Sneaker.find({ category })
 				.then((dbResult) => dbResult)

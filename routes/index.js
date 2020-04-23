@@ -38,14 +38,18 @@ router.post('/prod-add', authentificated, uploadCloud.single('image'), (req, res
 		.then((dbResult) => {})
 		.catch((dbError) => {
 			req.flash('error', 'There was an error creating your Sneaker !');
-			res.redirect('/prod-add');
+			res.redirect('/prod-manage');
 		});
 });
 
 router.get('/prod-manage', authentificated, (req, res, next) => {
-	res.render('products_manage', {
-		scripts: ['products.js'],
-	});
+	Sneaker.find()
+		.then((dbResult) => {
+			res.render('products_manage', {
+				sneakers: dbResult,
+			});
+		})
+		.catch((dbError) => console.log(dbError));
 });
 
 module.exports = router;
