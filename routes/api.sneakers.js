@@ -90,4 +90,10 @@ router.get('/cart/add/:ref/:size', (req, res, next) => {
 	});
 });
 
+router.get('/cart/del/:id', (req, res, next) => {
+	let e = req.session.cartContent.find((x) => x.id === req.params.id);
+	req.session.cartContent.splice(req.session.cartContent.indexOf(e), 1);
+	res.status(200).send('YEY');
+});
+
 module.exports = router;

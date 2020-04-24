@@ -96,10 +96,12 @@ router.get('/cart', async (req, res, next) => {
 		let sneakers = [];
 		for (let i = 0; i < cart.length; i++) {
 			let e = await Sneaker.findById(cart[i].id);
+			e.nb = cart[i].nb;
 			sneakers.push(e);
 		}
 		res.render('cart', {
 			sneakers,
+			scripts: ['manageCart.js'],
 		});
 	} else {
 		console.log('ELSE');

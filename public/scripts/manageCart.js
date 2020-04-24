@@ -8,11 +8,11 @@ window.onload = () => {
 			const id = event.target.getAttribute('data-id-sneaker');
 
 			sneakersAPI
-				.delete(id)
-				.then((APIResult) => {
+				.removeFromCart(id)
+				.then(() => {
 					event.target.closest('tr').remove();
 				})
-				.catch((APIerror) => console.log(APIerror));
+				.catch(() => console.log('T.T'));
 		});
 	});
 };

@@ -38,4 +38,8 @@ export class APIHandler {
 	addThisToCart(product) {
 		return this.service.get(`/cart/add/${product.ref}/${product.size}`);
 	}
+
+	removeFromCart(id) {
+		return this.service.get(`/cart/del/${id}`);
+	}
 }

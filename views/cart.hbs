@@ -7,6 +7,7 @@
         <th class="table-head">Picture</th>
         <th class="table-head">Product</th>
         <th class="table-head">Reference</th>
+        <th class="table-head">Number</th>
         <th class="table-head">Price</th>
         <th class="table-head">Actions</th>
       </tr>
@@ -24,6 +25,9 @@
           <div>{{this.ref}}</div>
         </td>
         <td class="table-division">
+          <div>{{this.nb}}</div>
+        </td>
+        <td class="table-division">
           <div>${{this.price}}</div>
         </td>
         <td class="table-division">
@@ -34,7 +38,7 @@
 
       {{#unless sneakers}}
       <tr>
-        <td colspan="5" style="text-align: center;">sorry no sneakers yet</td>
+        <td colspan="6" style="text-align: center;">Empty cart ? really ? T.T</td>
       </tr>
       {{/unless}}
     </tbody>
