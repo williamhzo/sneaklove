@@ -90,24 +90,43 @@ h2.logo-item {
   transition: all 0.2s ease-in;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 985px) {
   .flexed-item {
     flex-wrap: wrap;
   }
-  .nav-item {
-    margin-bottom: 1rem;
-  }
-  .nav-item-admin {
-    margin-right: 3rem;
-  }
-  .nav-end-item {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    margin-bottom: 1rem;
+
+  .nav-wrapper {
   }
 
-  .nav-end-item i {
-    margin-left: 1rem;
+  .nav-item {
+    margin-bottom: 0.5rem;
+    height: 20px;
+    margin-right: 0.5rem;
+  }
+
+  .nav-item-admin {
+    height: 20px;
+    flex-wrap: nowrap;
+  }
+
+  .nav-item-admin:last-child {
+    margin-right: 3rem;
+  }
+
+  .nav-end-item {
+    /* display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem; */
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .nav-end {
+    /* margin: 0 2rem; */
+  }
+
+  .nav-end i {
+    margin-left: 2rem;
   }
 }

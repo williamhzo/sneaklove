@@ -1,12 +1,13 @@
-.add-product-form, .edit-product-form{
+.add-product-form,
+.edit-product-form {
   width: 30%;
   margin-right: 2rem;
 }
-.add-tag-form{
+.add-tag-form {
   width: 30%;
 }
 
-.product-manage-wrapper{
+.product-manage-wrapper {
   padding: 2rem 1.2rem;
 }
 
@@ -15,32 +16,46 @@
   margin-bottom: 1.1rem;
 }
 
-h3.form-title{
+h3.form-title {
   border-bottom: 1px solid rgb(212, 212, 212);
-  padding-bottom: .8rem;
-  margin-bottom: .8rem;
-  font-size:1.2rem; 
+  padding-bottom: 0.8rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
 }
 
 .select {
-  padding: .6rem;
+  padding: 0.6rem;
   font-size: 1rem;
-  font-family: 'Source Sans Pro'
+  font-family: 'Source Sans Pro';
 }
 
-
 .label {
-  margin-bottom: .5rem;
-  font-size: .9rem;
-
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
 }
 
 .msgstatus {
   background: rgb(0, 202, 135);
   color: white;
   text-transform: uppercase;
-  font-size: .8rem;
-  padding: .8rem;
-  border-radius: .5rem;
-  margin-bottom: .5rem;
+  font-size: 0.8rem;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 850px) {
+  .add-tag-form {
+    margin-left: 2rem;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .add-tag-form {
+    margin-left: 0;
+    margin-top: 2rem;
+  }
+  .product-manage-wrapper {
+    flex-direction: column;
+  }
 }

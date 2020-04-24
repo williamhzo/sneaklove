@@ -2,12 +2,11 @@
   padding: 2rem 1.2rem;
   height: calc(100vh - (84px));
   flex-direction: column;
-  
 }
 
 h3.manage-products-title {
   border-bottom: 1px solid rgb(212, 212, 212);
-  padding-bottom: .8rem;
+  padding-bottom: 0.8rem;
   margin-bottom: 2rem;
   font-size: 1.2rem;
   height: 49px;
@@ -15,7 +14,7 @@ h3.manage-products-title {
 
 .product-manage-table {
   border: 1px solid;
-  width: 80%
+  width: 80%;
 }
 
 .table-row {
@@ -44,7 +43,25 @@ h3.manage-products-title {
   color: rgb(52, 52, 255);
 }
 
-.table-image{
+.table-image {
   width: 30px;
 }
 
+@media screen and (max-width: 780px) {
+  .product-manage-table {
+    border: 1px solid;
+    width: 90%;
+  }
+  table.product-manage-table {
+    margin: 0;
+  }
+  .table-division {
+    padding: 0.3rem;
+    font-size: 0.7rem;
+  }
+
+  .table-head {
+    padding: 0.3rem;
+    font-size: 0.7rem;
+  }
+}
