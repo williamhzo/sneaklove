@@ -5,8 +5,8 @@ export class APIHandler {
 		this.service = axios.create({
 			baseURL: baseUrl,
 		});
-		console.log('woohoo');
 	}
+
 	getFullList() {
 		return this.service.get('/');
 	}
@@ -21,5 +21,15 @@ export class APIHandler {
 
 	delete(id) {
 		return this.service.delete(`/${id}`);
+	}
+
+	filterByTags(tagArray, category = '') {
+		let string = tagArray.join('-');
+		let categ = category === '' ? 'none' : category;
+		return this.service.get(`/filter/${string}/${categ}`);
+	}
+	getAllSneakers(category = '') {
+		let categ = category === '' ? 'none' : category;
+		return this.service.get(`/sneakers/${categ}`);
 	}
 }

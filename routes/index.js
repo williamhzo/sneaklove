@@ -59,9 +59,10 @@ router.get('/prod-edit/:id', authentificated, async (req, res, next) => {
 	try {
 		const tags = await Tag.find();
 		const sneaker = await Sneaker.findById(req.params.id);
+		let idTags = !sneaker.id_tags ? null : sneaker.id_tags.join('-');
 		res.render('product_edit', {
 			tags: tags,
-			tagFamily: { tags, idTags: sneaker.id_tags.join('-') },
+			tagFamily: { tags, idTags },
 			sneaker,
 		});
 	} catch (error) {

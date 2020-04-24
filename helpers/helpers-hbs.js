@@ -69,7 +69,7 @@ hbs.registerHelper('isSelected', (arr, value) => {
 			return 'selected';
 		}
 	} else {
-		if (arr === value) {
+		if (arr == value) {
 			return 'selected';
 		}
 	}

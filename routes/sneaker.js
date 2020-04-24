@@ -24,6 +24,7 @@ router.get('/collection', (req, res, next) => {
 			res.render('products', {
 				tags,
 				sneakers,
+				scripts: ['filter.js'],
 			});
 		} catch (error) {
 			next(error);
@@ -54,6 +55,7 @@ router.get('/:cat', (req, res) => {
 				category,
 				tags,
 				sneakers,
+				scripts: ['filter.js'],
 			});
 		} catch (error) {
 			next(error);
