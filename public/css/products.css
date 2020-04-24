@@ -63,13 +63,26 @@ h4.products-title {
 .product-item-wrapper:hover {
   box-shadow: inset 0 -3px 0 0 #111;
 }
-.product-img {
+/* .product-img {
   margin-bottom: 0.5rem;
   width: 100%;
 }
 
 .product-img img {
   width: 100%;
+} */
+
+.product-img {
+  margin-bottom: 0.5rem;
+  width: 100%;
+  height: 70%;
+}
+
+.product-img img {
+  object-fit: cover;
+  object-position: center center;
+  width: 100%;
+  height: 100%;
 }
 
 .product-name {
@@ -93,15 +106,30 @@ h4.products-title {
   .products-wrapper {
     margin-left: 25px;
   }
+
+  .product-item-wrapper {
+    cursor: pointer;
+    width: 60%;
+  }
 }
 
 @media screen and (max-width: 520px) {
   .products-wrapper {
     margin-left: 25px;
+    padding-top: 0;
   }
 
   aside.tag-wrapper {
     width: 100%;
     padding: 25px;
+  }
+
+  .tag-list-item {
+    line-height: 2;
+    display: inline-block;
+  }
+
+  li.tag-list-item {
+    min-width: 30%;
   }
 }
