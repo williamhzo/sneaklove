@@ -49,6 +49,7 @@ router.get('/prod-manage', authentificated, (req, res, next) => {
 		.then((dbResult) => {
 			res.render('products_manage', {
 				sneakers: dbResult,
+				scripts: ['manage.js'],
 			});
 		})
 		.catch((dbError) => console.log(dbError));

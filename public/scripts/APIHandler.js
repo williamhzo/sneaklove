@@ -18,4 +18,8 @@ export class APIHandler {
 	findTag(label) {
 		return this.service.get(`/${label}`);
 	}
+
+	delete(id) {
+		return this.service.delete(`/${id}`);
+	}
 }
