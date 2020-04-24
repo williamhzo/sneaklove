@@ -1,7 +1,7 @@
 .add-product-form,
 .edit-product-form {
   width: 30%;
-  margin-right: 2rem;
+  margin-right: 3rem;
 }
 .add-tag-form {
   width: 30%;
@@ -64,8 +64,13 @@ h3.form-title {
 
 @media screen and (max-width: 630px) {
   .add-tag-form {
-    margin-left: 0;
+    margin-left: 2rem;
     margin-top: 2rem;
+  }
+
+  .add-product-form {
+    margin-left: 2rem;
+    width: 70%;
   }
 
   .product-manage-wrapper {
