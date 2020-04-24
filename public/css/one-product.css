@@ -41,8 +41,8 @@
 .sneak-img-container {
   display: flex;
   justify-content: center;
-  max-height: 350px;
-  max-width: 350px;
+  max-height: 400px;
+  max-width: 450px;
   margin: 1rem;
 }
 

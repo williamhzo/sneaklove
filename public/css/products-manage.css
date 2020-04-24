@@ -47,6 +47,16 @@ h3.manage-products-title {
   width: 30px;
 }
 
+/* error / success message */
+.error{
+  font-size: 1.5rem;
+  color: red;
+}
+
+.success{
+  font-size: 1.5rem;
+  color: gree;
+}
 @media screen and (max-width: 780px) {
   .product-manage-table {
     border: 1px solid;
