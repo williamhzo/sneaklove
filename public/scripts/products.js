@@ -10,23 +10,21 @@ window.onload = () => {
 			return;
 		} else {
 			sneakersAPI
-				.findTag({ label })
-				.then((APIresult) => {
-					if (APIresult.data === null) {
-						sneakersAPI
-							.addTag(label)
-							.then((APIResult) => {
-								document.getElementById('new_tag_name').value = '';
-								document.getElementById(
-									'tags'
-								).innerHTML += `<option value="${APIResult.data._id}">${APIResult.data.label}</option>`;
-							})
-							.catch((APIError) => console.log(APIError));
-					} else {
-						document.getElementById('add-tag-message').textContent = 'Tag already exist.';
-					}
+				.addTag(label)
+				.then((APIResult) => {
+					document.getElementById('new_tag_name').value = '';
+					document.getElementById(
+						'tags'
+					).innerHTML += `<option value="${APIResult.data._id}">${APIResult.data.label}</option>`;
+					document.getElementById('add-tag-message').classList.remove('error');
+					document.getElementById('add-tag-message').classList.add('success');
+					document.getElementById('add-tag-message').textContent = 'Tag Created !';
 				})
-				.catch((APIError) => console.log(APIError));
+				.catch((APIError) => {
+					document.getElementById('add-tag-message').classList.remove('success');
+					document.getElementById('add-tag-message').classList.add('error');
+					document.getElementById('add-tag-message').textContent = 'Tag already exist.';
+				});
 		}
 	});
 };

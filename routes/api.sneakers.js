@@ -8,7 +8,10 @@ router.get('/', (req, res, next) => {
 		.then((dbResult) => {
 			res.status(200).json(dbResult);
 		})
-		.catch((dbError) => console.log(dbError));
+		.catch((dbError) => {
+			console.log(dbError);
+			// res.status(500).json(dbError);
+		});
 });
 
 router.get('/sneakers/:cat', (req, res, next) => {
@@ -30,7 +33,9 @@ router.get('/:label', (req, res, next) => {
 		.then((dbResult) => {
 			res.status(200).json(dbResult);
 		})
-		.catch((dbError) => console.log(dbError));
+		.catch((dbError) => {
+			console.log(dbError);
+		});
 });
 
 router.post('/:label', (req, res, next) => {
@@ -38,7 +43,9 @@ router.post('/:label', (req, res, next) => {
 		.then((dbResult) => {
 			res.status(201).json(dbResult);
 		})
-		.catch((dbError) => console.log(dbError));
+		.catch((dbError) => {
+			res.status(500).json(dbError);
+		});
 });
 
 router.delete('/:id', (req, res, next) => {
