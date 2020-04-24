@@ -35,7 +35,9 @@ router.post('/prod-add', authentificated, uploadCloud.single('image'), (req, res
 	if (req.file) newSneaker.image = req.file.secure_url;
 
 	Sneaker.create(newSneaker)
-		.then((dbResult) => {})
+		.then((dbResult) => {
+			res.redirect('/prod-manage');
+		})
 		.catch((dbError) => {
 			req.flash('error', 'There was an error creating your Sneaker !');
 			res.redirect('/prod-manage');
@@ -52,23 +54,18 @@ router.get('/prod-manage', authentificated, (req, res, next) => {
 		.catch((dbError) => console.log(dbError));
 });
 
-router.get('/prod-edit/:id', authentificated, (req, res, next) => {
-	async function editAsync() {
-		try {
-			const tags = await Tag.find();
-			const sneaker = await Sneaker.findById(req.params.id);
-			console.log(typeof sneaker.id_tags.join('-'));
-			res.render('product_edit', {
-				tags: tags,
-				tagFamily: { tags, idTags: sneaker.id_tags.join('-') },
-				sneaker,
-			});
-		} catch (error) {
-			next(error);
-		}
+router.get('/prod-edit/:id', authentificated, async (req, res, next) => {
+	try {
+		const tags = await Tag.find();
+		const sneaker = await Sneaker.findById(req.params.id);
+		res.render('product_edit', {
+			tags: tags,
+			tagFamily: { tags, idTags: sneaker.id_tags.join('-') },
+			sneaker,
+		});
+	} catch (error) {
+		next(error);
 	}
-
-	editAsync();
 });
 
 router.post('/prod-edit/:id', authentificated, uploadCloud.single('image'), (req, res, next) => {

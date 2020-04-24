@@ -11,7 +11,7 @@
     </div>
     <div class="form-item-wrapper flexed-item">
       <label for="sneacker-size" class="label-ref label">Size</label>
-      <input name="sizes" id="sneacker-size" type="number" class="input-text input" placeholder="ex: 37" value="{{sneaker.size}}">
+      <input name="sizes" id="sneacker-size" type="number" class="input-text input" placeholder="ex: 37" value="{{sneaker.sizes}}">
     </div>
     <div class="form-item-wrapper flexed-item">
       <label for="sneacker-descr" class="label-descr label">Description</label>
@@ -25,9 +25,9 @@
       <label for="sneacker-main-cat" class="label-main-cat label">Main category</label>
       <select name="category" id="main_category" class="select" required>
         <option value="-1" disabled selected>Choose main Category...</option>
-        <option value="men">Men</option>
-        <option value="women">Women</option>
-        <option value="kids">Kids</option>
+        <option value="men" {{isSelected sneaker.category "men"}}>Men</option>
+        <option value="women" {{isSelected sneaker.category "women"}}>Women</option>
+        <option value="kids" {{isSelected sneaker.category "kids"}}>Kids</option>
       </select>
     </div>
     <div class="form-item-wrapper flexed-item">
@@ -35,7 +35,7 @@
       {{#each tags}}
       {{/each}}
       {{!-- tagFamily --}}
-      {{> form_tags_select}}
+      {{> form_tags_select tagFamily}}
     </div>
     <button class="button-primary add-sneacker-btn">Edit this sneaker</button>
   </form>

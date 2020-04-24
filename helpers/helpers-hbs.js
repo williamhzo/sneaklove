@@ -62,11 +62,15 @@ hbs.registerHelper('compare', function (lvalue, rvalue, options) {
 });
 
 hbs.registerHelper('isSelected', (arr, value) => {
-	// console.log(array.split('-'));
-	console.log(arr);
-	console.log(value);
 	if (!arr) return;
-	if (arr.includes(value)) {
-		return 'selected';
+	if (arr.includes('-')) {
+		let array = arr.split('-');
+		if (array.includes(value.toString())) {
+			return 'selected';
+		}
+	} else {
+		if (arr === value) {
+			return 'selected';
+		}
 	}
 });
