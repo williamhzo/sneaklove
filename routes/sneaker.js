@@ -72,6 +72,7 @@ router.get('/one-product/:id', (req, res) => {
 			res.render('one_product.hbs', {
 				sneaker: dbResult,
 				sizes: dbResult.sizes.split(','),
+				scripts: ['cartManager.js'],
 			});
 		})
 		.catch((dbError) => next(dbError));

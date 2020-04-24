@@ -1,9 +1,11 @@
 export class APIHandler {
-	constructor(baseUrl) {
+	constructor() {
 		// this.BASE_URL = baseUrl;
 		// "http://localhost:8000"
+		// this.baseUrl = '/api/sneakers/';
 		this.service = axios.create({
-			baseURL: baseUrl,
+			baseURL: '/api/sneakers/',
+			withCredentials: true,
 		});
 	}
 
@@ -31,5 +33,9 @@ export class APIHandler {
 	getAllSneakers(category = '') {
 		let categ = category === '' ? 'none' : category;
 		return this.service.get(`/sneakers/${categ}`);
+	}
+
+	addThisToCart(product) {
+		return this.service.get(`/cart/add/${product.ref}/${product.size}`);
 	}
 }

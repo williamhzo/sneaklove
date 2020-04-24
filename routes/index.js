@@ -90,9 +90,21 @@ router.post('/prod-edit/:id', authentificated, uploadCloud.single('image'), (req
 		.catch((dbError) => console.log(dbError));
 });
 
-router.get('/cart', (req, res, next) => {
-	console.log(req.session.cartContent);
-	res.render('cart');
+router.get('/cart', async (req, res, next) => {
+	const cart = req.session.cartContent ? req.session.cartContent : null;
+	if (cart) {
+		let sneakers = [];
+		for (let i = 0; i < cart.length; i++) {
+			let e = await Sneaker.findById(cart[i].id);
+			sneakers.push(e);
+		}
+		res.render('cart', {
+			sneakers,
+		});
+	} else {
+		console.log('ELSE');
+		console.log(req.session);
+	}
 });
 
 module.exports = router;

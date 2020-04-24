@@ -71,4 +71,23 @@ router.get('/filter/:tags/:category', (req, res, next) => {
 		.catch((dbError) => console.log(dbError));
 });
 
+router.get('/cart/add/:ref/:size', (req, res, next) => {
+	Sneaker.findOne({ ref: { $eq: req.params.ref } }).then((dbResult) => {
+		let product = {
+			id: dbResult._id,
+			size: req.params.size,
+			nb: 1,
+		};
+		if (req.session.cartContent) {
+			req.session.cartContent.push(product);
+		} else {
+			let newArr = [];
+			newArr.push(product);
+			req.session.cartContent = newArr;
+		}
+		console.log(req.session);
+		res.status(200).send('YEY');
+	});
+});
+
 module.exports = router;
