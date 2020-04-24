@@ -44,6 +44,18 @@ h3.form-title {
   margin-bottom: 0.5rem;
 }
 
+#add-tag-message.msg {
+  font-size: 1.5rem;
+}
+
+#add-tag-message.error {
+  color: red;
+}
+
+#add-tag-message.success {
+  color: green;
+}
+
 @media screen and (max-width: 850px) {
   .add-tag-form {
     margin-left: 2rem;
@@ -55,6 +67,7 @@ h3.form-title {
     margin-left: 0;
     margin-top: 2rem;
   }
+
   .product-manage-wrapper {
     flex-direction: column;
   }
