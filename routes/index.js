@@ -91,6 +91,7 @@ router.post('/prod-edit/:id', authentificated, uploadCloud.single('image'), (req
 });
 
 router.get('/cart', (req, res, next) => {
+	console.log(req.session.cartContent);
 	res.render('cart');
 });
 
