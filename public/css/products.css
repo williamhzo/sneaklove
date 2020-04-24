@@ -63,14 +63,6 @@ h4.products-title {
 .product-item-wrapper:hover {
   box-shadow: inset 0 -3px 0 0 #111;
 }
-/* .product-img {
-  margin-bottom: 0.5rem;
-  width: 100%;
-}
-
-.product-img img {
-  width: 100%;
-} */
 
 .product-img {
   margin-bottom: 0.5rem;
